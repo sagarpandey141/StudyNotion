@@ -1,6 +1,5 @@
-import {toast} from "react-hot-toast"
-import { endpoints, profileEndpoints, settings } from "../api";
-import axios from "axios";
+import { toast } from "react-hot-toast"
+import { profileEndpoints, settings } from "../api";
 import { apiConnector } from "../apiconnector";
 
 

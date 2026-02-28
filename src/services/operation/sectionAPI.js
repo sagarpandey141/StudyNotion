@@ -1,7 +1,6 @@
 import  {toast}  from "react-hot-toast"
 import { apiConnector } from "../apiconnector"
 import { section } from "../api"
-import { setCourse } from "../../slices/courseSlice"
 
 export async function createSection(data,token){
        let result;

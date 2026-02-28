@@ -1,9 +1,7 @@
 import { toast } from "react-hot-toast"
-import { course, settings } from "../api"
+import { settings } from "../api"
 import { apiConnector } from "../apiconnector"
 import { setUser } from "../../slices/profileSlice";
-import { useSelector } from "react-redux";
-import axios from "axios";
 import { logout } from "./authApi";
 
 

@@ -82,7 +82,7 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
 const sendPaymentSuccessEmail=async(response,amount,token)=>{
      console.log("razorpay res",response)
              try{
-               const res=await apiConnector("POST",paymentss.PAYMENT_SUCCESSFULLY_EMAIL,{
+              await apiConnector("POST",paymentss.PAYMENT_SUCCESSFULLY_EMAIL,{
                     orderId:response.razorpay_order_id,
                     paymentId:response.razorpay_payment_id,
                     amount,
