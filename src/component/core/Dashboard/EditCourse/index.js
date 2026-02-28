@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import RenderSteps from "../addCourse/RenderSteps";
 import { editFullCourseDetails } from "../../../../services/operation/CourseApi";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ export default  function EditCourse(){
     useEffect(()=>{
         ;(async()=>{
             setLoading(true);
-            const result= editFullCourseDetails(courseId,token)
+            const result = await editFullCourseDetails(courseId, token)
             if(result?.courseDetails){
                    dispatch(setEditCourse(true))
                    dispatch(setCourse(result?.courseDetails));

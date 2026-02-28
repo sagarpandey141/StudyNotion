@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { FetchAllRatingandReviews } from '../../../services/operation/RatingandReview';
 import ReactStars from 'react-stars';
-import {Swiper, SwiperSlide} from "swiper/react"
-import "swiper/css"
-import "swiper/css/free-mode"
-import "swiper/css/pagination"
-import { Autoplay,FreeMode,Navigation, Pagination}  from 'swiper'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import { Autoplay, FreeMode, Navigation, Pagination } from "swiper";
 import {FaStar} from "react-icons/fa"
 const RatingandReview = () => {
     

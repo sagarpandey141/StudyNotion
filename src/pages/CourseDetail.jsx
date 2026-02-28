@@ -86,29 +86,35 @@ const CourseDetail = () => {
     }
 
     //total lecture
-    const[TotalLecture,setTotalLecture]=useState(0);
-    useEffect(()=>{
-        let totalCount=0;
-        course?.courseContent?.forEach((sec) => {
-             totalCount+=sec?.subSection?.length
+    const [TotalLecture, setTotalLecture] = useState(0);
+    useEffect(() => {
+        let totalCount = 0;
+        const courseContent = Array.isArray(course?.courseContent) ? course.courseContent : [];
+
+        courseContent.forEach((sec) => {
+            const subSections = Array.isArray(sec.subSection) ? sec.subSection : [];
+            totalCount += subSections.length;
         });
+
         setTotalLecture(totalCount);
-    },[course])
+    }, [course]);
     
-   //total video length
-   const[totalSec,setTotalSec]=useState(0);
+    //total video length
+    const [totalSec, setTotalSec] = useState(0);
 
-   useEffect(()=>{
+    useEffect(() => {
+        let totalSecOfVideo = 0;
+        const courseContent = Array.isArray(course?.courseContent) ? course.courseContent : [];
 
-        let totalSecOfVideo=0;
-        course?.courseContent?.forEach((sec)=>{
-             sec?.subSection?.forEach((subsec)=>{
-                 totalSecOfVideo+=subsec?.timeDuration
-             })
-        })
-      
-        setTotalSec(Math.round(totalSecOfVideo))
-   },[course])
+        courseContent.forEach((sec) => {
+            const subSections = Array.isArray(sec.subSection) ? sec.subSection : [];
+            subSections.forEach((subsec) => {
+                totalSecOfVideo += subsec?.timeDuration || 0;
+            });
+        });
+
+        setTotalSec(Math.round(totalSecOfVideo));
+    }, [course]);
    
     const handleAddToCart=()=>{
         if(user?. accountType === ACCOUNT_TYPE.INSTRUCTOR){
