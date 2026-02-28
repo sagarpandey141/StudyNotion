@@ -3,16 +3,11 @@ import {apiConnector} from "../apiconnector"
 import { endpoints } from "../api"
 import {setLoading,setToken} from "../../../src/slices/authSlice"
 import { setUser } from "../../slices/profileSlice"
-import { useDispatch } from "react-redux"
 
 
 const {
   SENDOTP_API,
   SIGNUP_API,
-  LOGIN_API,
-  RESETPASSWORD_API,
-  
-
 } = endpoints
 
 

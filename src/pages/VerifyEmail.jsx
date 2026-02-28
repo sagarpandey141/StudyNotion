@@ -67,19 +67,6 @@ const VerifyEmail = () => {
   }
      const handleVerifyAndSignup=(e)=>{
         e.preventDefault();
-
-        const{
-            firstName,
-            lastName,
-            email,
-        
-            password,
-            confirmPassword
-        }=signupData
-      
-         
-
-     
         signuphandler(signupData);
      }
 

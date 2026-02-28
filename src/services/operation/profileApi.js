@@ -40,7 +40,7 @@ export async function deleteProfile(token){
      try{
 
          //make a call to backend
-           const response=await apiConnector("DELETE",settings.DELETE_PROFILE_API,{       
+           await apiConnector("DELETE",settings.DELETE_PROFILE_API,{
               Authorisation: `Bearer ${token}`,
            })
         
