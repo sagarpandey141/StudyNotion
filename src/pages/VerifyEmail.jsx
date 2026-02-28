@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import {RxCountdownTimer} from "react-icons/rx"
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoading, setToken } from '../slices/authSlice';
+import { setLoading } from '../slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 import {BiArrowBack} from "react-icons/bi"
 import { toast } from 'react-hot-toast';
@@ -20,8 +20,7 @@ const VerifyEmail = () => {
   async function otpsend(email){
       const toastId=toast.loading('Loading');
       try{
-        const response=await axios.post(endpoints.SENDOTP_API,{email});
-       
+        await axios.post(endpoints.SENDOTP_API,{email});
         toast.success("Email Sent");
 
       } catch(error){
@@ -35,7 +34,7 @@ const VerifyEmail = () => {
     if(!signupData){
          navigate("/signup")
     }
-  },[])
+  },[navigate, signupData])
      
  
 
@@ -51,11 +50,9 @@ const VerifyEmail = () => {
             dispatch(setLoading(true));
            
             try{
-                const response=await axios.post(endpoints.SIGNUP_API,
+                await axios.post(endpoints.SIGNUP_API,
                     finaldata
                 )
-
-                
                 toast.success("Sign Up SuccessFull");
                 navigate("/login");
               

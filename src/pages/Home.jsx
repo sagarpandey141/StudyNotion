@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BsArrowRightShort } from 'react-icons/bs';
 import HighlightText from "../../src/component/core/HomePage/HighlightText";
 import BTN from "../../src/component/core/HomePage/BTN";
 import banner from "../assets/Images/banner.mp4"
-import {Link, useNavigate} from "react-router-dom"
+import { Link } from "react-router-dom"
 import CodeBlock from '../../src/component/core/HomePage/CodeBlock';
 import TimeLineLanguage from '../../src/component/core/HomePage/TimeLineLanguage';
 import LearningLanguageSection from '../../src/component/core/HomePage/LearningLanguageSection';
@@ -11,10 +11,7 @@ import InstructorSection from '../../src/component/core/HomePage/InstructorSecti
 import ExploreMore from '../../src/component/core/HomePage/ExploreMore';
 import RatingandReview from '../component/core/HomePage/RatingandReview';
 import Footer from '../component/common/Footer';
-import { checkJwtExpired } from '../services/operation/authApi';
 const Home = () => {
-  const navigate=useNavigate()
-  const token=localStorage.getItem("token");
   
  
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {AiOutlineArrowLeft} from "react-icons/ai"
 import { useDispatch, useSelector } from 'react-redux';
-import {getpasswordresetToken} from "../services/operation/authApi"
 import { Link } from 'react-router-dom';
 import { endpoints } from '../services/api';
 import axios from 'axios';
