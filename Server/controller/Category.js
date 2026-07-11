@@ -12,8 +12,8 @@ exports.createCategory=async(req,res)=>{
 
         //validation
         if(!name || ! decsription){
-            res.status(401).json({
-                sucess:false,
+            return res.status(401).json({
+                success:false,
                 message:"All Fields Are Required",
             })
         }
@@ -25,7 +25,7 @@ exports.createCategory=async(req,res)=>{
         });
 
         res.status(200).json({
-            sucess:false,
+            success:true,
             message:"Tag creates SuccessFully",
         })
      } catch(error){
@@ -90,8 +90,7 @@ exports.categoryPageDetail=async(req,res)=>{
            })
          
            let differentCategory = await Category.findOne(
-            randomCategory[getRandomInt(randomCategory.length)]
-              ._id
+            {_id: randomCategory[getRandomInt(randomCategory.length)]._id}
           )
            .populate({
             path:"course",

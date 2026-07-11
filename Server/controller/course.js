@@ -286,7 +286,7 @@ exports.editCourse = async (req, res) => {
       if (req.files) {
        
         const thumbnail = req.files.thumbnail
-        const thumbnailImage = await uploadImageToCloudinary(
+        const thumbnailImage = await imageUploadToCloudinary(
           thumbnail,
           process.env.FOLDER_NAME
         )
@@ -382,7 +382,7 @@ exports.deleteCourse=async(req,res)=>{
         message:"Course Deleted SuccessFully"
       })
     } catch(error){
-       return res.json(500).json({
+       return res.status(500).json({
         success:false,
         message:"error in deleting course",
         error:error.message

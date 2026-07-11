@@ -77,7 +77,7 @@ exports.signUp=async (req,res)=>{
         }=req.body;
            //validation
         if(!email || !password || !confirmPassword || !otp || !firstName|| !lastName){
-            res.status(401).json({
+            return res.status(401).json({
                 success:false,
                 message:"All Field Are Required Please Fill All The Detail",
             });
@@ -99,7 +99,7 @@ exports.signUp=async (req,res)=>{
         //check in Db if user is already present
         const dbChecking= await User.findOne({email});
         if(dbChecking){
-            res.status(401).json({
+            return res.status(401).json({
                 success:false,
                 message:"User already exist try different email",
             })
@@ -210,9 +210,9 @@ exports.login=async(req,res)=>{
             })
         }
         else{
-                 res.status(500).json({
+                 return res.status(401).json({
                     success:false,
-                    message:"password Doesnt Matches",
+                    message:"Password does not match",
                  })
         }
 

@@ -6,10 +6,10 @@ exports.Auth=async(req,res,next)=>{
   
     try{
         //extract
-        const token=req.cookies.token 
+        const token = req.cookies.token 
                      || req.body.token 
-                     || req.header("Authorisation").replace("Bearer ", "");
-           
+                     || req.header("Authorization")?.replace("Bearer ", "")
+                     || req.header("Authorisation")?.replace("Bearer ", "");
         if(!token){
             res.status(401).json({
                 sucess:false,
